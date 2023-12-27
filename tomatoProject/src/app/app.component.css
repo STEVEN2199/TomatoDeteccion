@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: greenyellow;
+}
+
+.titulo{
+  font-size: 20px;
+  margin-left: 450px;
+  margin-bottom: -20px;
+}
+
+.image-container, .buttons {
+  margin-top: 20px;
+}
+
+.image-container {
+  background-color: aqua;
+  width: 1210px;
+  height: 600px;
+  margin-left: 20px;
+  border-radius: 8px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: blueviolet;
+  width: 420px;
+  height: 600px;
+  margin-right: 70px;
+  border-radius: 8px;
+}
+
+.results {
+  background-color: red;
+  width: 95%;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 6px;
+  padding-left: 8px;
+}
+
+.boton-archivo{
+  display: none;
+}
+
+.boton-modelo, .boton-pdf{
+  width: 300px;
+  height: 40px;
+  margin-left: 60px;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+.boton-pdf{
+  margin-top: 20px;
+}
+
+.titulo-botones{
+  margin-left: 60px;
+  font-size: 30px;
+}
+
+mat-progress-bar {
+  margin-top: 20px;
+  width: 800px;
+  height: 50px;
+  background-color: aqua;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
