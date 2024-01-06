@@ -1,15 +1,15 @@
 <div class="container">
 
   <div class="titulo" >
-    <h1>Detección De Defectos En Plantíos De Tomates</h1>
+    <h1 style="color: white; font-style:italic; font-weight:bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Detección De Enfermedad En Hoja De Plantíos De Tomates</h1>
   </div>
 
   <div class="image-container">
-    <img [src]="imagenUrl" alt="Imagen cargada">
+    <img [src]="imagenUrl" alt="Imagen cargada" style="border-radius: 2px;">
   </div>
 
   <div class="buttons">
-    <p class="titulo-botones">Seleccione una opción</p>
+    <p class="titulo-botones" style="color: white; font-weight:bold; font-style:italic">Seleccione una opción</p>
     <!--<input type="file" matInput class="boton-archivo" style="display: none;" #fileInput >
     <button mat-raised-button color="primary" (click)="fileInput.click()" class="boton-modelo">Cargar Imagen</button>
     <button mat-raised-button color="primary" (click)="onUpload()" class="boton-modelo">Detectar Defectos</button>
@@ -24,12 +24,12 @@
 
   <div class="results" >
     <div class="results" >
-      <h2>Resultado:</h2>
-      <p>{{resultado}}</p>
-      <p>{{porcentaje}}%</p>
+      <h2 style="color: white; font-style:italic; font-weight:bold;">Resultado:</h2>
+      <p style="color: white; font-style:italic; font-weight:bold;">{{resultado}}</p>
+      <p style="color: white; font-style:italic; font-weight:bold;">{{porcentaje}}%</p>
     </div>
   </div>
 
-  <mat-progress-bar *ngIf="cargando" mode="indeterminate"></mat-progress-bar>
+  <mat-progress-bar *ngIf="cargando" mode="determinate" [value]="progreso"></mat-progress-bar>
 
 </div>

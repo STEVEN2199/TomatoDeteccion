@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: greenyellow;
+  /*background-color: greenyellow;*/
+  background-image: url('../assets/fondo.jpg');
 }
 
 .titulo{
@@ -26,13 +27,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* Añade la imagen de fondo */
+  background-image: url('../assets/AI-PNG-HD.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.5;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: blueviolet;
+  background-color: rgb(23, 88, 230);
   width: 420px;
   height: 600px;
   margin-right: 70px;
@@ -40,12 +48,13 @@
 }
 
 .results {
-  background-color: red;
+  background-color: rgb(23, 88, 230);
   width: 95%;
   margin-top: 20px;
   margin-left: 20px;
   border-radius: 6px;
   padding-left: 8px;
+  margin-bottom: 10px;
 }
 
 .boton-archivo{
@@ -58,6 +67,8 @@
   margin-left: 60px;
   border-radius: 3px;
   margin-top: 20px;
+  font-style:italic;
+  font-weight:bold;
 }
 
 .boton-pdf{

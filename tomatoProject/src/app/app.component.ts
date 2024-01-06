@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   resultado: string;
   porcentaje: number;
   cargando: boolean = false;
+  progreso: number = 0;
 
   constructor(private cd: ChangeDetectorRef) {} // Inyecta ChangeDetectorRef
 
@@ -27,14 +28,14 @@ export class AppComponent implements OnInit {
     const file = (event.target as HTMLInputElement).files[0];
 
     if (file) {
-      this.cargando = true; // Comienza la carga
+      this.progreso = 0; // Comienza la carga
 
       const reader = new FileReader();
       reader.onload = async e => {
         this.imagenUrl = reader.result as string;
         this.cd.detectChanges(); // Detecta los cambios
 
-        this.cargando = false; // Termina la carga
+        this.progreso = 100; // Termina la carga
       }
       reader.readAsDataURL(file);
     }
