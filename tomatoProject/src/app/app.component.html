@@ -11,17 +11,22 @@
   <div class="buttons">
     <p class="titulo-botones">Seleccione una opción</p>
     <input type="file" matInput class="boton-archivo" style="display: none;" #fileInput >
-    <button mat-raised-button color="primary" (click)="fileInput.click()" class="boton-modelo">Cargar Imagen</button>
+    <!--<button mat-raised-button color="primary" (click)="fileInput.click()" class="boton-modelo">Cargar Imagen</button>
     <button mat-raised-button color="primary" (click)="onUpload()" class="boton-modelo">Detectar Defectos</button>
-    <button mat-raised-button color="primary" (click)="onUpload()" class="boton-pdf">Exportar Pdf</button>
+    <button mat-raised-button color="primary" (click)="onUpload()" class="boton-pdf">Exportar Pdf</button>-->
+
+    <button mat-raised-button color="primary" class="boton-modelo">Cargar Imagen</button>
+    <button mat-raised-button color="primary" class="boton-modelo">Detectar Defectos</button>
+    <button mat-raised-button color="primary" class="boton-pdf">Exportar Pdf</button>
   </div>
 
   <div class="results" >
     <h2>Resultado:</h2>
     <p>Defectos detectados en la imagen.</p>
-    <p>(Defecto identificado): </p>
-    <p>(Porcentaje de Defecto): %</p>
+    <!--<p>(Defecto identificado): </p>
+    <p>(Porcentaje de Defecto): %</p>-->
   </div>
 
   <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+
 </div>

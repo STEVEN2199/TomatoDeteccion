@@ -6,6 +6,8 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": false,
+    "skipLibCheck": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -17,6 +19,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
+    "types": ["long"],
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [

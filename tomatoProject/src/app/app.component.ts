@@ -1,14 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as tf from '@tensorflow/tfjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  model!: tf.LayersModel;
   /*imagenUrl: string | ArrayBuffer;
   defectosDetectados: string;
   porcentajeDefecto: number;*/
+
+  ngOnInit() {
+    this.loadModel();
+  }
+
+  async loadModel() {
+    this.model = await tf.loadLayersModel('ruta/a/tu/modelo.json');
+  }
+
+  /*predict(imageData) {
+    const imageTensor = tf.browser.fromPixels(imageData).toFloat();
+    const normalized = imageTensor.div(tf.scalar(255.0));
+    const input = normalized.reshape([1, ...normalized.shape]);
+
+
+    const prediction = this.model.predict(input);
+    return prediction.arraySync();
+  }*/
 
   /*onFileSelected(event) {
     const file: File = event.target.files[0];
