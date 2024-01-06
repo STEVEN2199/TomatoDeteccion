@@ -5,28 +5,31 @@
   </div>
 
   <div class="image-container">
-    <img   alt="Imagen cargada">
+    <img [src]="imagenUrl" alt="Imagen cargada">
   </div>
 
   <div class="buttons">
     <p class="titulo-botones">Seleccione una opción</p>
-    <input type="file" matInput class="boton-archivo" style="display: none;" #fileInput >
-    <!--<button mat-raised-button color="primary" (click)="fileInput.click()" class="boton-modelo">Cargar Imagen</button>
+    <!--<input type="file" matInput class="boton-archivo" style="display: none;" #fileInput >
+    <button mat-raised-button color="primary" (click)="fileInput.click()" class="boton-modelo">Cargar Imagen</button>
     <button mat-raised-button color="primary" (click)="onUpload()" class="boton-modelo">Detectar Defectos</button>
     <button mat-raised-button color="primary" (click)="onUpload()" class="boton-pdf">Exportar Pdf</button>-->
 
-    <button mat-raised-button color="primary" class="boton-modelo">Cargar Imagen</button>
-    <button mat-raised-button color="primary" class="boton-modelo">Detectar Defectos</button>
+    <input type="file" matInput class="boton-archivo" style="display: none;" #fileInput (change)="onFileSelected($event)">
+    <button mat-raised-button color="primary" (click)="fileInput.click()" class="boton-modelo">Cargar Imagen</button>
+    <button mat-raised-button color="primary" (click)="detectDefects()" class="boton-modelo">Detectar Defectos</button>
+    <button mat-raised-button color="primary" (click)="limpiar()" class="boton-modelo">Limpiar</button>
     <button mat-raised-button color="primary" class="boton-pdf">Exportar Pdf</button>
   </div>
 
   <div class="results" >
-    <h2>Resultado:</h2>
-    <p>Defectos detectados en la imagen.</p>
-    <!--<p>(Defecto identificado): </p>
-    <p>(Porcentaje de Defecto): %</p>-->
+    <div class="results" >
+      <h2>Resultado:</h2>
+      <p>{{resultado}}</p>
+      <p>{{porcentaje}}%</p>
+    </div>
   </div>
 
-  <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+  <mat-progress-bar *ngIf="cargando" mode="indeterminate"></mat-progress-bar>
 
 </div>

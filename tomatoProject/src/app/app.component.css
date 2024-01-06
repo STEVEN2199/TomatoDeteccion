@@ -21,6 +21,11 @@
   height: 600px;
   margin-left: 20px;
   border-radius: 8px;
+
+  /* Añade estas líneas */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons {
