@@ -29,11 +29,11 @@
   align-items: center;
 
   /* Añade la imagen de fondo */
-  background-image: url('../assets/AI-PNG-HD.png');
+  background-image: url('../assets/FONDO 2.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 
 .buttons {

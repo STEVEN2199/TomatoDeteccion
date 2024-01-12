@@ -21,7 +21,11 @@ export class AppComponent implements OnInit {
   }
 
   async loadModel() {
-    this.model = await tf.loadLayersModel('../assets/model.json');
+    try {
+      this.model = await tf.loadLayersModel('../assets/model.json');
+    } catch (error) {
+      console.error('Error loading model', error);
+    }
   }
 
   onFileSelected(event: Event) {
@@ -54,21 +58,30 @@ export class AppComponent implements OnInit {
   }
 
   async detectDefects() {
-    // Preprocesa la imagen y conviértela en un tensor
-    const tensor = await this.preprocessImage(this.imagenUrl as string);
+    let tensor;
+    try {
+      // Preprocesa la imagen y conviértela en un tensor
+      tensor = await this.preprocessImage(this.imagenUrl as string);
 
-    // Haz la predicción
-    const prediction = this.model.predict(tensor) as tf.Tensor;
+      // Haz la predicción
+      const prediction = this.model.predict(tensor) as tf.Tensor;
 
-    // Aquí puedes procesar la predicción como necesites
-    // Por ejemplo, puedes encontrar el índice de la clase con la mayor probabilidad
-    const result = prediction.argMax(1).dataSync()[0];
+      // Aquí puedes procesar la predicción como necesites
+      // Por ejemplo, puedes encontrar el índice de la clase con la mayor probabilidad
+      const result = prediction.argMax(1).dataSync()[0];
 
-    // Y luego asignar el resultado y el porcentaje a tus propiedades
-    this.resultado = `Clase ${result}`;
-    this.porcentaje = prediction.max().dataSync()[0] * 100;
+      // Y luego asignar el resultado y el porcentaje a tus propiedades
+      this.resultado = `Clase ${result}`;
+      this.porcentaje = prediction.max().dataSync()[0] * 100;
 
-    this.cd.detectChanges(); // Detecta los cambios
+      this.cd.detectChanges(); // Detecta los cambios
+    } catch (error) {
+      console.error('Error detecting defects', error);
+    } finally {
+      if (tensor) {
+        tensor.dispose();
+      }
+    }
   }
 
   limpiar() {
