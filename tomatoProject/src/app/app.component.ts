@@ -14,6 +14,13 @@ export class AppComponent implements OnInit {
   cargando: boolean = false;
   progreso: number = 0;
 
+  clases = [
+    'Septoria_leaf_spot',
+    'Tomato_Yellow_Leaf_Curl_Virus',
+    'Tomato_mosaic_virus',
+    'healthy',
+  ];
+
   constructor(private cd: ChangeDetectorRef) {} // Inyecta ChangeDetectorRef
 
   ngOnInit() {
@@ -58,6 +65,7 @@ export class AppComponent implements OnInit {
   }
 
   async detectDefects() {
+    this.cargando = true; // Comienza la carga
     let tensor;
     try {
       // Preprocesa la imagen y conviértela en un tensor
@@ -68,11 +76,11 @@ export class AppComponent implements OnInit {
 
       // Aquí puedes procesar la predicción como necesites
       // Por ejemplo, puedes encontrar el índice de la clase con la mayor probabilidad
-      const result = prediction.argMax(1).dataSync()[0];
+      const resultIndex = prediction.argMax(1).dataSync()[0];
 
       // Y luego asignar el resultado y el porcentaje a tus propiedades
-      this.resultado = `Clase ${result}`;
-      this.porcentaje = prediction.max().dataSync()[0] * 100;
+      this.resultado = `Clase ${resultIndex}: ${this.clases[resultIndex]}`;
+      //this.porcentaje = prediction.max().dataSync()[0] ;
 
       this.cd.detectChanges(); // Detecta los cambios
     } catch (error) {
@@ -81,12 +89,13 @@ export class AppComponent implements OnInit {
       if (tensor) {
         tensor.dispose();
       }
+      this.cargando = false; // Termina la carga
     }
   }
 
   limpiar() {
     this.imagenUrl = '';
     this.resultado = '';
-    this.porcentaje = 0;
+    //this.porcentaje = 0;
   }
 }
